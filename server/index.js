@@ -1,3 +1,5 @@
+require('dotenv').config()
+console.log(process.env.DATABASE_URL);
 // Express
 const express = require('express');
 const app = express();
@@ -6,32 +8,23 @@ const cors = require('cors');
 // HTTP Server
 const http = require('http');
 const server = http.createServer(app);
-app.use(cors());
 
 // Socket.io
-const { Server } = require("socket.io");
-const io = new Server(server, {
-    // Allow all cors
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
-    },
-});
+const socketConfig = require('./socket');
+const io = socketConfig(server);
 
-const port = 3000;
+// Mongoose
+const mongooseConfig = require('./mongoose');
+mongooseConfig(process.env.DATABASE_URL);
 
 app.use(cors());
+app.use(express.json());
 
-// Route
-app.get('/', (req, res) => {
-    res.send('<h1>Hello world</h1>');
-});
+const routesConfig = require('./routes');
+routesConfig(app, io);
 
-io.on('connection', (socket) => {
-    console.log('A scoreboard connected');
-});
+const port = 8080;
 
-// Setup server
 server.listen(port, () => {
-    console.log('listening on *:3000');
+    console.log('listening on *:8080');
 });
