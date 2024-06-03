@@ -1,6 +1,7 @@
 // Create
 import React, {useEffect, useState} from 'react';
 import Scoreboard from "./pages/Scoreboard";
+import background from './assets/bg1.webp';
 import io from 'socket.io-client';
 
 function App() {
@@ -13,17 +14,22 @@ function App() {
     }, []);
 
     return (
-        <div>
-            <Scoreboard scores={scores} connected={connected}/>
+        <div className="relative h-screen w-full bg-center bg-no-repeat bg-cover"
+             style={{backgroundImage: `url(${background})`}}>
+            <div
+                className="absolute h-screen w-full flex justify-center bg-gray-950 items-center bg-opacity-85">
+                <div className="w-1/2">
+                    <Scoreboard scores={scores} connected={connected}/>
+                </div>
+            </div>
         </div>
     );
 
     async function loadTableData() {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/scores?limit=10`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/scores?limit=5`);
             return await response.json();
-        }
-        catch (err) {
+        } catch (err) {
             console.error('Error fetching scores:', err);
             return [];
         }
