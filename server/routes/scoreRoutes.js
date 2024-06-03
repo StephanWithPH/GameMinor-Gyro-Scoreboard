@@ -5,7 +5,11 @@ const Score = require('../models/scoreModel.js');
 module.exports = function(io) {
     router.get('/', async (req, res) => {
         try {
-            const scores = await Score.find();
+            var query = req.query.limit;
+            const scores =
+                query ?
+                    await Score.find().sort({ timeTaken: 1 }).limit(parseInt(query)) :
+                    await Score.find().sort({ timeTaken: 1 });
             res.json(scores);
         } catch (err) {
             res.status(500).send(err);

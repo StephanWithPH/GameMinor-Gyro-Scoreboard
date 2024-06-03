@@ -20,11 +20,12 @@ function App() {
 
     async function loadTableData() {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/scores`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/scores?limit=10`);
             return await response.json();
         }
         catch (err) {
             console.error('Error fetching scores:', err);
+            return [];
         }
     }
 
