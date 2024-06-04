@@ -1,7 +1,7 @@
 // Create
 import React, {useEffect, useState} from 'react';
 import Scoreboard from "./pages/Scoreboard";
-import background from './assets/bg1.webp';
+import background from './assets/bg1.png';
 import io from 'socket.io-client';
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         <div className="relative h-screen w-full bg-center bg-no-repeat bg-cover"
              style={{backgroundImage: `url(${background})`}}>
             <div
-                className="absolute h-screen w-full flex justify-center bg-gray-950 items-center bg-opacity-85">
-                <div className="w-1/2">
+                className="absolute w-full h-screen flex justify-center items-center bg-gradient-to-b from-black/80 to-neutral-600/80">
+                <div className="w-[75%]">
                     <Scoreboard scores={scores} connected={connected}/>
                 </div>
             </div>

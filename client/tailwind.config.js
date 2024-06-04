@@ -9,6 +9,9 @@ module.exports = {
             colors: {
                 gyroblue: '#5cf3b4'
             },
+            fontFamily: {
+                sans: ['"Moby"', 'sans-serif']
+            }
         },
         plugins: [],
     }

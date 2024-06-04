@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Moby';
+  src: url('../assets/moby.ttf') format('truetype');
+}
