@@ -1,7 +1,5 @@
 import React from 'react';
-import Status from "../components/Status";
 import boxesImg from '../assets/boxes.png';
-import ScoreboardItem from "../components/ScoreboardItem";
 import moment from "moment/moment";
 
 function Scoreboard({scores, connected}) {
@@ -16,7 +14,7 @@ function Scoreboard({scores, connected}) {
             <div className="relative w-full">
                 <div>
                     <div className="left-[3%] top-[6%] w-[19%] absolute">
-                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-2 shadow-fuchsia-500 break-words">
+                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score1?.name || 'No score'}
                         </p>
                         <p className="text-2xl">{score1?.timeTaken ? moment.utc(score1?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
@@ -28,7 +26,7 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[24%] top-[17%] w-[17%] absolute">
-                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-2 shadow-fuchsia-500 break-words">
+                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score2?.name || 'No score'}
                         </p>
                         <p className="text-2xl">{score2?.timeTaken ? moment.utc(score2?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
@@ -40,7 +38,7 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[43%] top-[33%] w-[15%] absolute">
-                        <p className="text-xl mb-[10%] overflow-hidden line-clamp-2 shadow-fuchsia-500 break-words">
+                        <p className="text-xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score3?.name || 'No score'}
                         </p>
                         <p className="text-xl">{score3?.timeTaken ? moment.utc(score3?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
@@ -52,7 +50,7 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[60%] top-[48%] w-[13%] absolute">
-                        <p className="mb-[10%] overflow-hidden line-clamp-2 shadow-fuchsia-500 break-words">
+                        <p className="mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score4?.name || 'No score'}
                         </p>
                         <p className="text-xl">{score4?.timeTaken ? moment.utc(score4?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
@@ -64,7 +62,7 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[76%] top-[60%] w-[12%] absolute">
-                        <p className="mb-[10%] overflow-hidden line-clamp-2 shadow-fuchsia-500 break-words">
+                        <p className="mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score5?.name || 'No score'}
                         </p>
                         <p>{score5?.timeTaken ? moment.utc(score5?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>

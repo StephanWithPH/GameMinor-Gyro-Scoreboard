@@ -2,11 +2,15 @@
 import React, {useEffect, useState} from 'react';
 import Scoreboard from "./pages/Scoreboard";
 import background from './assets/bg1.png';
+import logo from './assets/logo.png';
 import io from 'socket.io-client';
+import Status from "./components/Status";
+import moment from "moment/moment";
 
 function App() {
     const [scores, setScores] = useState([]);
     const [connected, setConnected] = useState(false);
+    const [lastFetch, setLastFetch] = useState();
 
     // Fetch scores on load and connect to socket
     useEffect(() => {
@@ -17,15 +21,24 @@ function App() {
         <div className="relative h-screen w-full bg-center bg-no-repeat bg-cover"
              style={{backgroundImage: `url(${background})`}}>
             <div
-                className="absolute w-full h-screen flex justify-center items-center bg-gradient-to-b from-black/80 to-neutral-600/80">
-                <div className="w-[75%]">
+                className="absolute w-full h-screen flex justify-center items-center bg-gradient-to-b from-black/80 to-neutral-600/80 flex-col gap-11">
+                <div>
+                    <img src={logo} alt="logo" className="w-80"/>
+                </div>
+                <div className="w-[65%]">
                     <Scoreboard scores={scores} connected={connected}/>
                 </div>
+            </div>
+            <div className="absolute right-3 bottom-3 text-white">
+                <Status connected={connected}/>
+            </div>
+            <div className="absolute left-3 bottom-3 text-white">
+                <p><span className="text-gyroblue">Last updated:</span> {lastFetch ? moment(lastFetch).format('DD MMM YYYY [at] HH:mm') : 'Never'}</p>
             </div>
         </div>
     );
 
-    async function loadTableData() {
+    async function fetchTableData() {
         try {
             const response = await fetch(`${process.env.REACT_APP_API_URL}/scores?limit=5`);
             return await response.json();
@@ -35,26 +48,32 @@ function App() {
         }
     }
 
+    function refreshTable() {
+        fetchTableData().then(data => {
+            setScores(data);
+            setLastFetch(new Date());
+        }).catch(err => {
+            console.error('Error fetching scores:', err);
+        });
+    }
+
     function connectToSocket() {
         // Connect to socket io socket
         console.log('Connecting to socket');
         const socket = io(`${process.env.REACT_APP_SOCKET_URL}`);
         socket.on('connect', () => {
             console.log('Connected to socket');
+            refreshTable();
             setConnected(true);
-            loadTableData().then(data => {
-                setScores(data);
-            });
         });
         socket.on('disconnect', () => {
             console.log('Disconnected from socket');
+            setScores([]);
             setConnected(false);
         });
         socket.on('scoreboard-changed', (msg) => {
             console.log('Scoreboard changed');
-            loadTableData().then(data => {
-                setScores(data);
-            });
+            refreshTable();
         });
     }
 }
