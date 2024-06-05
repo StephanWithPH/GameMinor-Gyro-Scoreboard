@@ -9,6 +9,7 @@ const scoreSchema = new mongoose.Schema({
     timeTaken: {
         type: Number,
         required: true,
+        min: 0
     }
 },
 {

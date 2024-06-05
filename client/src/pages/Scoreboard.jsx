@@ -17,10 +17,10 @@ function Scoreboard({scores, connected}) {
                         <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score1?.name || 'No score'}
                         </p>
-                        <p className="text-2xl">{score1?.timeTaken ? moment.utc(score1?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
+                        <p className="text-2xl">{score1?.timeTaken != null ? moment.utc(score1?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
                     </div>
                     <div className="bottom-[28%] left-[3%] absolute">
-                        <p className="text-xl">at {score1?.createdAt ? moment(score1?.createdAt).format("HH:mm") : "??:??"}</p>
+                        <p className="text-xl">at {score1?.createdAt != null ? moment(score1?.createdAt).format("HH:mm") : "??:??"}</p>
                     </div>
                 </div>
 
@@ -29,10 +29,10 @@ function Scoreboard({scores, connected}) {
                         <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score2?.name || 'No score'}
                         </p>
-                        <p className="text-2xl">{score2?.timeTaken ? moment.utc(score2?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
+                        <p className="text-2xl">{score2?.timeTaken != null ? moment.utc(score2?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
                     </div>
                     <div className="bottom-[21%] left-[24%] absolute">
-                        <p className="text-xl">at {score2?.createdAt ? moment(score2?.createdAt).format("HH:mm") : "??:??"}</p>
+                        <p className="text-xl">at {score2?.createdAt != null ? moment(score2?.createdAt).format("HH:mm") : "??:??"}</p>
                     </div>
                 </div>
 
@@ -41,10 +41,10 @@ function Scoreboard({scores, connected}) {
                         <p className="text-xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score3?.name || 'No score'}
                         </p>
-                        <p className="text-xl">{score3?.timeTaken ? moment.utc(score3?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
+                        <p className="text-xl">{score3?.timeTaken != null ? moment.utc(score3?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
                     </div>
                     <div className="bottom-[14%] left-[43%] absolute">
-                        <p>at {score3?.createdAt ? moment(score3?.createdAt).format("HH:mm") : "??:??"}</p>
+                        <p>at {score3?.createdAt != null ? moment(score3?.createdAt).format("HH:mm") : "??:??"}</p>
                     </div>
                 </div>
 
@@ -53,10 +53,10 @@ function Scoreboard({scores, connected}) {
                         <p className="mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score4?.name || 'No score'}
                         </p>
-                        <p className="text-xl">{score4?.timeTaken ? moment.utc(score4?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
+                        <p className="text-xl">{score4?.timeTaken != null ? moment.utc(score4?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
                     </div>
                     <div className="bottom-[9%] left-[60%] absolute">
-                        <p className="text-sm">at {score4?.createdAt ? moment(score4?.createdAt).format("HH:mm") : "??:??"}</p>
+                        <p className="text-sm">at {score4?.createdAt != null ? moment(score4?.createdAt).format("HH:mm") : "??:??"}</p>
                     </div>
                 </div>
 
@@ -65,10 +65,10 @@ function Scoreboard({scores, connected}) {
                         <p className="mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score5?.name || 'No score'}
                         </p>
-                        <p>{score5?.timeTaken ? moment.utc(score5?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
+                        <p>{score5?.timeTaken != null ? moment.utc(score5?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
                     </div>
                     <div className="bottom-[5%] left-[76%] absolute">
-                        <p className="text-sm">at {score5?.createdAt ? moment(score5?.createdAt).format("HH:mm") : "??:??"}</p>
+                        <p className="text-sm">at {score5?.createdAt != null ? moment(score5?.createdAt).format("HH:mm") : "??:??"}</p>
                     </div>
                 </div>
 
