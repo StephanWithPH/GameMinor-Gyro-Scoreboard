@@ -1,6 +1,7 @@
 import React from 'react';
 import boxesImg from '../assets/boxes.png';
 import moment from "moment/moment";
+import { FiStar } from "react-icons/fi";
 
 function Scoreboard({scores, connected}) {
     const score1 = scores[0];
@@ -14,6 +15,7 @@ function Scoreboard({scores, connected}) {
             <div className="relative w-full">
                 <div>
                     <div className="left-[3%] top-[6%] w-[19%] absolute">
+                        <FiStar className="text-amber-300 fill-amber-300" size={70} />
                         <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score1?.name || 'No score'}
                         </p>
@@ -26,6 +28,7 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[24%] top-[17%] w-[17%] absolute">
+                        <FiStar className="text-gray-300 fill-gray-300" size={70} />
                         <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score2?.name || 'No score'}
                         </p>
@@ -38,6 +41,7 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[43%] top-[33%] w-[15%] absolute">
+                        <FiStar className="text-amber-700 fill-amber-700" size={70} />
                         <p className="text-xl mb-[10%] overflow-hidden line-clamp-3 break-words">
                             {score3?.name || 'No score'}
                         </p>
