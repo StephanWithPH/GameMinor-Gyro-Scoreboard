@@ -15,8 +15,8 @@ function Scoreboard({scores, connected}) {
             <div className="relative w-full">
                 <div>
                     <div className="left-[3%] top-[6%] w-[19%] absolute">
-                        <FiStar className="text-amber-300 fill-amber-300" size={70} />
-                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
+                        <FiStar className="text-amber-300 fill-amber-300 mb-2 drop-shadow" size={70} />
+                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words drop-shadow">
                             {score1?.name || 'No score'}
                         </p>
                         <p className="text-2xl">{score1?.timeTaken != null ? moment.utc(score1?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
@@ -28,8 +28,8 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[24%] top-[17%] w-[17%] absolute">
-                        <FiStar className="text-gray-300 fill-gray-300" size={70} />
-                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words">
+                        <FiStar className="text-gray-300 fill-gray-300 mb-2 drop-shadow" size={70} />
+                        <p className="text-2xl mb-[10%] overflow-hidden line-clamp-3 break-words drop-shadow">
                             {score2?.name || 'No score'}
                         </p>
                         <p className="text-2xl">{score2?.timeTaken != null ? moment.utc(score2?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
@@ -41,8 +41,8 @@ function Scoreboard({scores, connected}) {
 
                 <div>
                     <div className="left-[43%] top-[33%] w-[15%] absolute">
-                        <FiStar className="text-amber-700 fill-amber-700" size={70} />
-                        <p className="text-xl mb-[10%] overflow-hidden line-clamp-3 break-words">
+                        <FiStar className="text-amber-700 fill-amber-700 mb-2 drop-shadow" size={70} />
+                        <p className="text-xl mb-[10%] overflow-hidden line-clamp-3 break-words drop-shadow">
                             {score3?.name || 'No score'}
                         </p>
                         <p className="text-xl">{score3?.timeTaken != null ? moment.utc(score3?.timeTaken).format("mm:ss.SSS") : "??:??.???"}</p>
