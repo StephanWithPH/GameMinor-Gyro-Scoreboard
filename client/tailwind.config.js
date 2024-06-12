@@ -7,7 +7,8 @@ module.exports = {
         extend: {
             // Add custom colors here
             colors: {
-                gyroblue: '#5cf3b4'
+                gyroblue: '#5cf3b4',
+                gyropurple: '#6D2C91'
             },
             fontFamily: {
                 sans: ['"Moby"', 'sans-serif']

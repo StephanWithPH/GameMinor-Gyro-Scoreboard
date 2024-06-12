@@ -41,7 +41,7 @@ function App() {
             </div>
             <div className="absolute left-3 bottom-3 text-white">
                 <p><span
-                    className="text-gyroblue">Last updated:</span> {lastFetch ? moment(lastFetch).format('DD MMM YYYY [at] HH:mm') : 'Never'}
+                    className="text-gyroblue">Last fetched:</span> {lastFetch ? moment(lastFetch).format('DD MMM YYYY [at] HH:mm') : 'Never'}
                 </p>
             </div>
             <div className="absolute right-3 top-3 text-gyroblue/50 border-gyroblue/50 hover:text-gyroblue hover:border-gyroblue transition-all text-2xl border-2 rounded-lg w-10 h-10 flex justify-center items-center">
@@ -49,13 +49,13 @@ function App() {
                     <FiList className="mb-0 pb-0"/>
                 </button>
             </div>
-            <AllScores isOpen={isAllScoresModalOpen} setIsOpen={(x) => setIsAllScoresModalOpen(x)}/>
+            <AllScores isOpen={isAllScoresModalOpen} setIsOpen={(x) => setIsAllScoresModalOpen(x)} scores={scores}/>
         </div>
     );
 
     async function fetchTableData() {
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/scores?limit=5`);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/scores`);
             return await response.json();
         } catch (err) {
             console.error('Error fetching scores:', err);
